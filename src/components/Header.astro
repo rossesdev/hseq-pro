@@ -1,0 +1,170 @@
+---
+const navLinks = [
+  { label: "Inicio", href: "#inicio" },
+  { label: "Servicios", href: "#servicios" },
+  { label: "Nosotros", href: "#nosotros" },
+];
+---
+
+<header
+  class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-shadow duration-300"
+  role="banner"
+  id="site-header"
+>
+  <nav
+    class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between"
+    aria-label="Navegación principal"
+  >
+    <a
+      href="#inicio"
+      class="flex items-center gap-2"
+      aria-label="HSEQ PRO - Ir al inicio"
+    >
+      <div
+        class="w-8 h-8 sm:w-10 sm:h-10 bg-primary rounded flex items-center justify-center"
+        aria-hidden="true"
+      >
+        <span class="material-icons text-white text-lg sm:text-2xl"
+          >security</span
+        >
+      </div>
+      <span
+        class="text-xl sm:text-2xl font-extrabold tracking-tight text-hseq-dark"
+      >
+        HSEQ<span class="text-primary">PRO</span>
+      </span>
+    </a>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-slate-100 transition-colors"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Abrir menú de navegación"
+    >
+      <span class="material-icons text-2xl" id="menu-icon">menu</span>
+    </button>
+
+    <!-- Desktop Navigation -->
+    <div
+      class="hidden md:flex items-center gap-8 font-semibold text-sm uppercase tracking-wider"
+    >
+      {
+        navLinks.map((link) => (
+          <a
+            class="hover:text-primary transition-colors focus:text-primary focus:outline-none focus:underline"
+            href={link.href}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+      <a
+        class="bg-primary text-hseq-dark px-6 py-2.5 rounded-lg hover:brightness-110 transition-all shadow-lg shadow-primary/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+        href="#contacto"
+      >
+        Contáctanos
+      </a>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div
+      id="mobile-menu"
+      class="md:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out"
+      role="menu"
+    >
+      <div
+        class="flex flex-col px-6 py-4 gap-1 font-semibold text-sm uppercase tracking-wider"
+      >
+        {
+          navLinks.map((link) => (
+            <a
+              class="py-3 hover:text-primary transition-colors border-b border-slate-100"
+              href={link.href}
+              role="menuitem"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+        <a
+          class="mt-2 mb-2 bg-primary text-hseq-dark px-6 py-3 rounded-lg hover:brightness-110 transition-all shadow-lg shadow-primary/20 text-center"
+          href="#contacto"
+          role="menuitem"
+        >
+          Contáctanos
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  function initMobileMenu() {
+    const menuBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+
+    if (!menuBtn || !mobileMenu || !menuIcon) return;
+
+    const menuLinks = mobileMenu.querySelectorAll("a");
+
+    function toggleMenu() {
+      if (mobileMenu && menuIcon && menuBtn) {
+        const isOpen = mobileMenu.classList.contains("open");
+        if (isOpen) {
+          mobileMenu.classList.remove("open");
+          mobileMenu.style.maxHeight = "0";
+          mobileMenu.style.opacity = "0";
+        } else {
+          mobileMenu.classList.add("open");
+          mobileMenu.style.maxHeight = mobileMenu.scrollHeight + "px";
+          mobileMenu.style.opacity = "1";
+        }
+        menuIcon.textContent = isOpen ? "menu" : "close";
+        menuBtn.setAttribute("aria-expanded", String(!isOpen));
+      }
+    }
+
+    menuBtn.addEventListener("click", toggleMenu);
+
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        mobileMenu.style.maxHeight = "0";
+        mobileMenu.style.opacity = "0";
+        menuIcon.textContent = "menu";
+        menuBtn.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileMenu.classList.contains("open")) {
+        toggleMenu();
+        menuBtn.focus();
+      }
+    });
+  }
+
+  // Header shadow on scroll
+  function initHeaderScroll() {
+    const header = document.getElementById("site-header");
+    if (!header) return;
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (window.scrollY > 10) {
+          header.classList.add("shadow-md");
+        } else {
+          header.classList.remove("shadow-md");
+        }
+      },
+      { passive: true },
+    );
+  }
+
+  initMobileMenu();
+  initHeaderScroll();
+</script>

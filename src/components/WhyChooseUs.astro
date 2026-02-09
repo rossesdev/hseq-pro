@@ -1,0 +1,104 @@
+---
+interface Reason {
+  title: string;
+  description: string;
+}
+
+const reasons: Reason[] = [
+  {
+    title: "Expertos Certificados",
+    description: "Profesionales con experiencia en el sector.",
+  },
+  {
+    title: "Planes a Medida",
+    description: "Soluciones adaptadas a su tipo de negocio.",
+  },
+  {
+    title: "Soporte 24/7",
+    description: "Atención inmediata ante cualquier eventualidad.",
+  },
+  {
+    title: "Tranquilidad Legal",
+    description: "Cumplimiento total con la normativa vigente.",
+  },
+];
+---
+
+<section
+  class="py-16 sm:py-24 bg-white"
+  id="nosotros"
+  aria-labelledby="about-heading"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid lg:grid-cols-2 gap-10 sm:gap-16 items-center">
+      <!-- Image -->
+      <div class="relative" data-animate="slide-left">
+        <img
+          alt="Equipo profesional discutiendo protocolos de seguridad en una oficina moderna"
+          class="rounded-2xl shadow-2xl relative z-10 w-full h-auto"
+          src="/why.png"
+          loading="lazy"
+          width="800"
+          height="600"
+        />
+        <div
+          class="absolute -top-6 -right-6 w-32 h-32 bg-primary/20 rounded-full blur-3xl"
+          aria-hidden="true"
+        >
+        </div>
+        <div
+          class="absolute -bottom-10 -left-10 w-64 h-64 bg-hseq-blue/10 rounded-full blur-3xl"
+          aria-hidden="true"
+        >
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-8 sm:space-y-10" data-animate="slide-right">
+        <div>
+          <p
+            class="text-primary font-bold uppercase tracking-widest mb-3 sm:mb-4 text-sm"
+          >
+            ¿Por qué elegirnos?
+          </p>
+          <h2
+            id="about-heading"
+            class="text-3xl sm:text-4xl font-extrabold text-hseq-dark leading-tight"
+          >
+            Su seguridad es nuestra prioridad estratégica
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+          {
+            reasons.map((reason) => (
+              <div class="flex gap-3 sm:gap-4">
+                <div
+                  class="shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  <span class="material-icons text-white text-lg">check</span>
+                </div>
+                <div>
+                  <h3 class="font-bold text-hseq-dark text-sm sm:text-base">
+                    {reason.title}
+                  </h3>
+                  <p class="text-sm text-slate-500">{reason.description}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+
+        <blockquote
+          class="p-6 sm:p-8 bg-background-light rounded-2xl border-l-4 border-primary"
+        >
+          <p class="text-base sm:text-lg font-medium text-slate-700">
+            "Hemos ayudado a más de 100 establecimientos comerciales a reducir
+            sus incidentes operativos en un 40% durante el primer año."
+          </p>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+</section>

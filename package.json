@@ -1,0 +1,23 @@
+{
+  "name": "hseq-pro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.5.2",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/vercel": "^8.0.4",
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/react-dom": "^19.2.3",
+    "astro": "^5.17.1",
+    "notistack": "^3.0.2",
+    "resend": "^6.9.1",
+    "schema-dts": "^1.1.5",
+    "tailwindcss": "^4.1.18"
+  }
+}

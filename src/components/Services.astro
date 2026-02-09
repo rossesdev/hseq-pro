@@ -1,0 +1,78 @@
+---
+interface ServiceItem {
+  icon: string;
+  title: string;
+  description: string;
+  features: string[];
+}
+
+const services: ServiceItem[] = [
+  {
+    icon: 'clean_hands',
+    title: 'Saneamiento',
+    description: 'Protocolos avanzados de limpieza y desinfección bajo estándares internacionales de higiene.',
+    features: ['Control de plagas', 'Calidad del agua'],
+  },
+  {
+    icon: 'recycling',
+    title: 'Gestión de Residuos',
+    description: 'Implementación de planes de manejo ambiental y disposición final responsable de desechos.',
+    features: ['Clasificación eficiente', 'Cumplimiento legal'],
+  },
+  {
+    icon: 'fact_check',
+    title: 'Auditorías',
+    description: 'Evaluación exhaustiva de riesgos y cumplimiento de normativas locales y nacionales.',
+    features: ['Informes de diagnóstico', 'Planes de mejora'],
+  },
+  {
+    icon: 'school',
+    title: 'Capacitación',
+    description: 'Entrenamiento especializado para el personal en seguridad y salud en el trabajo.',
+    features: ['Brigadas de emergencia', 'Uso de EPP'],
+  },
+];
+---
+
+<section class="py-16 sm:py-24 bg-background-light" id="servicios" aria-labelledby="services-heading">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 sm:mb-16 gap-4 sm:gap-6" data-animate>
+      <div class="max-w-2xl">
+        <p class="text-primary font-bold uppercase tracking-widest mb-3 sm:mb-4 text-sm">Portafolio de Servicios</p>
+        <h2 id="services-heading" class="text-3xl sm:text-4xl font-extrabold text-hseq-dark">
+          Soluciones integrales diseñadas para su sector
+        </h2>
+      </div>
+      <p class="text-slate-500 max-w-xs text-sm sm:text-base">
+        Ofrecemos un enfoque 360° para cubrir todas las necesidades normativas y operativas de su empresa.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      {services.map((service, index) => (
+        <article
+          class="group bg-white p-6 sm:p-8 rounded-2xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-slate-100 hover:border-primary/50 hover:-translate-y-1"
+          data-animate
+          style={`--animation-delay: ${index * 0.1}s`}
+        >
+          <div
+            class="w-12 h-12 sm:w-14 sm:h-14 bg-hseq-blue/10 text-hseq-blue rounded-xl flex items-center justify-center mb-5 sm:mb-6 group-hover:bg-primary group-hover:text-hseq-dark transition-colors"
+            aria-hidden="true"
+          >
+            <span class="material-icons text-2xl sm:text-3xl">{service.icon}</span>
+          </div>
+          <h3 class="text-lg sm:text-xl font-extrabold mb-3 text-hseq-dark">{service.title}</h3>
+          <p class="text-slate-600 mb-4 sm:mb-6 text-sm sm:text-base">{service.description}</p>
+          <ul class="space-y-2 text-sm text-slate-500" aria-label={`Servicios de ${service.title.toLowerCase()}`}>
+            {service.features.map((feature) => (
+              <li class="flex items-center gap-2">
+                <span class="material-icons text-primary text-sm" aria-hidden="true">done</span>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

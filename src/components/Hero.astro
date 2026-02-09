@@ -1,0 +1,84 @@
+---
+interface Props {
+  heading?: string;
+  subheading?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  imageUrl?: string;
+  imageAlt?: string;
+}
+
+const {
+  heading = 'Soluciones <span class="text-primary">HSEQ</span> para establecimientos comerciales',
+  subheading = "Garantizamos el cumplimiento normativo, la seguridad operativa y la excelencia en calidad para que su negocio nunca se detenga.",
+  ctaText = "Agenda tu asesoría gratuita",
+  ctaHref = "#contacto",
+  imageUrl = "/bg.png",
+  imageAlt = "Oficina comercial moderna y profesional con espacios de trabajo seguros",
+} = Astro.props;
+---
+
+<section
+  class="relative min-h-screen flex items-center pt-16 sm:pt-20 overflow-hidden"
+  id="inicio"
+  aria-labelledby="hero-heading"
+>
+  <div class="absolute inset-0 z-0">
+    <img
+      alt={imageAlt}
+      class="w-full h-full object-cover"
+      src={imageUrl}
+      loading="eager"
+      fetchpriority="high"
+      width="1920"
+      height="1080"
+    />
+    <div
+      class="absolute inset-0 bg-linear-to-r from-hseq-dark/95 via-hseq-dark/70 to-transparent"
+    >
+    </div>
+  </div>
+
+  <div
+    class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-8 sm:gap-12 items-center my-20"
+  >
+    <div class="space-y-6 sm:space-y-8">
+      <div
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-primary text-xs sm:text-sm font-bold uppercase tracking-widest animate-fade-in"
+      >
+        <span class="relative flex h-2 w-2" aria-hidden="true">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+          ></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"
+          ></span>
+        </span>
+        Certificación &amp; Seguridad
+      </div>
+
+      <h1
+        id="hero-heading"
+        class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.1] animate-fade-in-up"
+        set:html={heading}
+      />
+
+      <p
+        class="text-base sm:text-xl text-slate-300 max-w-lg leading-relaxed animate-fade-in-up animation-delay-200"
+      >
+        {subheading}
+      </p>
+
+      <div
+        class="flex flex-wrap gap-4 pt-2 sm:pt-4 animate-fade-in-up animation-delay-300"
+      >
+        <a
+          class="bg-primary text-hseq-dark px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg hover:-translate-y-0.5 transition-all shadow-xl shadow-primary/30 flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+          href={ctaHref}
+        >
+          {ctaText}
+          <span class="material-icons" aria-hidden="true">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

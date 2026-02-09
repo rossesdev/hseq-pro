@@ -1,0 +1,169 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer
+  class="bg-primary pt-16 sm:pt-24 pb-8 sm:pb-12"
+  id="contacto"
+  role="contentinfo"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <!-- Contact + Form -->
+    <div
+      class="grid lg:grid-cols-2 gap-10 sm:gap-12 items-center mb-12 sm:mb-16"
+    >
+      <!-- Contact Info -->
+      <div data-animate="slide-left">
+        <h2
+          class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-hseq-dark mb-4 sm:mb-6"
+        >
+          Listo para elevar los estándares de su empresa?
+        </h2>
+        <p class="text-lg sm:text-xl text-hseq-dark/80 mb-6 sm:mb-8 max-w-lg">
+          Contáctenos hoy mismo y reciba un diagnóstico inicial sin costo.
+          Proteja su inversión y a su equipo de trabajo.
+        </p>
+        <address class="space-y-4 not-italic">
+          <a
+            href="tel:+573145966689"
+            class="flex items-center gap-4 text-hseq-dark hover:opacity-80 transition-opacity"
+            aria-label="Llamar al +57 314 596 6689"
+          >
+            <div
+              class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-lg"
+              aria-hidden="true"
+            >
+              <span class="material-icons text-lg sm:text-xl">phone</span>
+            </div>
+            <span class="text-lg sm:text-xl font-bold">+57 314 596 6689</span>
+          </a>
+          <a
+            href="mailto:edwardarnulfo@gmail.com"
+            class="flex items-center gap-4 text-hseq-dark hover:opacity-80 transition-opacity"
+            aria-label="Enviar email a edwardarnulfo@gmail.com"
+          >
+            <div
+              class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-lg"
+              aria-hidden="true"
+            >
+              <span class="material-icons text-lg sm:text-xl">email</span>
+            </div>
+            <span class="text-lg sm:text-xl font-bold break-all sm:break-normal"
+              >edwardarnulfo@gmail.com</span
+            >
+          </a>
+        </address>
+      </div>
+
+      <!-- Contact Form -->
+      <div
+        class="bg-hseq-dark p-6 sm:p-10 rounded-2xl sm:rounded-3xl shadow-2xl"
+        data-animate="slide-right"
+      >
+        <div class="text-center mb-6 sm:mb-8">
+          <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">
+            Solicite Información
+          </h3>
+          <p class="text-slate-400 text-sm sm:text-base">
+            Nuestro equipo responderá en menos de 24 horas.
+          </p>
+        </div>
+        <form
+          id="contact-form"
+          class="space-y-4"
+          aria-label="Formulario de contacto"
+          novalidate
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="contact-name" class="sr-only">Nombre completo</label>
+              <input
+                id="contact-name"
+                name="name"
+                class="w-full bg-slate-800 border-none rounded-xl p-3 sm:p-4 text-white focus:ring-2 focus:ring-primary placeholder:text-slate-500 text-sm sm:text-base"
+                placeholder="Nombre"
+                type="text"
+                required
+                autocomplete="name"
+              />
+            </div>
+            <div>
+              <label for="contact-email" class="sr-only"
+                >Correo electrónico</label
+              >
+              <input
+                id="contact-email"
+                name="email"
+                class="w-full bg-slate-800 border-none rounded-xl p-3 sm:p-4 text-white focus:ring-2 focus:ring-primary placeholder:text-slate-500 text-sm sm:text-base"
+                placeholder="Email"
+                type="email"
+                required
+                autocomplete="email"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="contact-message" class="sr-only">Mensaje</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              class="w-full bg-slate-800 border-none rounded-xl p-3 sm:p-4 text-white focus:ring-2 focus:ring-primary placeholder:text-slate-500 text-sm sm:text-base"
+              placeholder="¿En qué podemos ayudarle?"
+              rows="4"
+              required></textarea>
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-primary text-hseq-dark font-extrabold py-3 sm:py-4 rounded-xl hover:bg-white transition-all shadow-xl shadow-black/20 text-base sm:text-lg uppercase tracking-wider focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hseq-dark cursor-pointer"
+          >
+            Contáctanos ahora
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div
+      class="border-t border-hseq-dark/10 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6"
+    >
+      <div class="flex items-center gap-2">
+        <div
+          class="w-8 h-8 bg-hseq-dark rounded flex items-center justify-center"
+          aria-hidden="true"
+        >
+          <span class="material-icons text-primary text-sm">security</span>
+        </div>
+        <span class="text-xl font-extrabold tracking-tight text-hseq-dark"
+          >HSEQ<span class="text-white">PRO</span></span
+        >
+      </div>
+      <p class="text-hseq-dark font-medium text-xs sm:text-sm text-center">
+        &copy; {currentYear} HSEQ PRO. Todos los derechos reservados.
+      </p>
+      <nav class="flex gap-4" aria-label="Redes sociales">
+        <a
+          class="w-10 h-10 bg-hseq-dark rounded-full flex items-center justify-center text-white hover:bg-hseq-blue transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hseq-dark"
+          href="#"
+          aria-label="Visitar perfil de Facebook"
+          rel="noopener noreferrer"
+        >
+          <span class="material-icons text-xl" aria-hidden="true">facebook</span
+          >
+        </a>
+        <a
+          class="w-10 h-10 bg-hseq-dark rounded-full flex items-center justify-center text-white hover:bg-hseq-blue transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-hseq-dark"
+          href="#"
+          aria-label="Compartir en redes sociales"
+          rel="noopener noreferrer"
+        >
+          <span class="material-icons text-xl" aria-hidden="true">share</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  import { initContactForm } from "../scripts/contactForm";
+  initContactForm();
+</script>

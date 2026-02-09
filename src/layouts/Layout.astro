@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+import { structuredData } from '../data/seo';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalURL?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'HSEQ PRO | Soluciones Profesionales en Seguridad, Salud, Medio Ambiente y Calidad',
+  description = 'HSEQ PRO ofrece soluciones integrales en seguridad, salud ocupacional, medio ambiente y calidad para establecimientos comerciales en Colombia. Auditorías, capacitación, saneamiento y gestión de residuos.',
+  canonicalURL = 'https://www.hseqpro.com/',
+  ogImage = 'https://www.hseqpro.com/og-image.jpg',
+} = Astro.props;
+---
+
+<!doctype html>
+<html class="light" lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>{title}</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content={description} />
+    <meta name="keywords" content="HSEQ, seguridad industrial, salud ocupacional, medio ambiente, calidad, auditorías, saneamiento, gestión de residuos, capacitación SST, Colombia" />
+    <meta name="author" content="HSEQ PRO" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:site_name" content="HSEQ PRO" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+  </head>
+  <body class="font-display bg-background-light text-slate-800 antialiased transition-colors duration-300">
+    <!-- Skip Navigation for Accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-100 focus:bg-primary focus:text-hseq-dark focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold">
+      Saltar al contenido principal
+    </a>
+
+    <slot />
+  </body>
+</html>
